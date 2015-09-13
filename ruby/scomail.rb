@@ -64,6 +64,7 @@ message = message_header + part2 + part3
 
 
 # Set relay server below: smtp.foo.com instead of localhost.
-Net::SMTP.start('localhost') do |smtp|
-  smtp.send_message message, 'machine1@scoday.com',['machine1@scoday.com','sday@mac.com']
+# Net::SMTP.start('localhost') do |smtp|
+Net::SMTP.start('smtp.mail.me.com') do |smtp|
+  smtp.send_message message, 'sday@mac.com',['sday@mac.com','sday@mac.com']
 end
