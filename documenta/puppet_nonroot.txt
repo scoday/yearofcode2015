@@ -1,0 +1,50 @@
+This build environment should match wherever you are deploying this. For instance if you setup /home/puppet/ in your non-root system you should have /home/root/ exactly. If your organization has a long convention like /opt/appserver/app101 then you should create and /opt/appserver/101 and perform the installs (see below starting at openssl) against that directory. For example --prefix=/opt/appserver/101.
+
+ mkdir /structure/that-matches/my-prod/installers
+ cd /structure/that-matches/my-prod/installers
+
+As Root User*
+Install openssl
+ curl -O https://www.openssl.org/source/openssl-1.0.0k.tar.gz
+ tar -xvzf openssl-1.0.0k.tar.gz
+ cd openssl-1.0.0k
+ ./config shared -fPIC --prefix=/structure/that-matches/my-prod/ruby --openssldir=/structure/that-matches/my-prod/ruby/ssl && make && make install
+
+
+Install zlib
+ curl -O http://zlib.net/zlib-1.2.8.tar.gz
+ tar -xvzf zlib-1.2.8.tar.gz
+ cd zlib-1.2.8
+ ./configure --prefix=/structure/that-matches/my-prod/ruby && make && make install
+
+
+Build YAML
+ curl -O http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz
+ tar -xvzf yaml-0.1.4.tar.gz
+ cd yaml-0.1.4
+ ./configure --disable-install-doc --prefix=/structure/that-matches/my-prod/ruby && make && make install
+
+
+Build Ruby
+ curl -O ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p547.tar.gz
+ tar -xvzf ruby-1.9.3-p547.tar.gz
+ cd ruby-1.9.3-p547
+ ./configure --prefix=/structure/that-matches/my-prod/ruby --enable-shared --disable-install-doc --with-opt-dir=/structure/that-matches/my-prod/ruby && make && make install
+
+
+Install Hiera/Stomp
+ cd /structure/that-matches/my-prod/ruby/bin/
+ ./gem install hiera
+ ./gem install stomp 
+
+Build Facter
+  cd /root/installers/facter-$ver
+  ./structure/that-matches/my-prod/ruby/bin/ruby install.rb
+  
+Build Puppet
+  cd /root/installers/puppet-$ver
+  ./structure/that-matches/my-prod/ruby/bin/ruby install.rb
+
+Build MCollective
+  cd /root/installers/mcollective-$ver
+  ./structure/that-matches/my-prod/ruby/bin/ruby install.rb
