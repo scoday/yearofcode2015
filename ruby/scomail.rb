@@ -65,6 +65,5 @@ message = message_header + part2 + part3
 
 
 Net::SMTP.start('relay.apple.com') do |smtp|
-  #smtp.send_message message, 'aml-monitor-alert@group.apple.com','Athena_Support@group.apple.com'
   smtp.send_message message, 'machine1@scoday.com',['machine1@scoday.com','sday@mac.com']
 end
