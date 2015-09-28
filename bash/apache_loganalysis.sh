@@ -93,25 +93,6 @@ emailBadHtmlEmail() {
 
 }
 
-DisplayBonusAnalysis() {
-	# This will write the analysis out to the screen, and a file, both.
-	echo "Analysis - " >> analysis.log
-	echo "" >> analysis.log
-	echo "Based on the increase from minute 0 to minute 1 and the style of URLs that are being used, including keywords like dump and an excessive" >> analysis.log
-	echo "number of ../../../../ calls, I think that this is either an attempt to extract information 'OR' there is a new sql injection type bug" >> analysis.log
-	echo "floating around the internet. What I have found over the years is that often times you will get these odd requests from an infected node somewhere" >> analysis.log
-	echo "and the end user likely did not trigger the requests. Because the number is in the 1000's and is not loading the main index page, I would say it is " >> analysis.log
-	echo "probably not a DDOS type attack but further analysis would be warranted. While not a wiki developer this one URL that occurs ~ 275 times makes me" >> analysis.log
-	echo "suspicious, however it could be a red herring: /wiki/Special:EntityData/Q1255163.ttl?flavor=dump the term DUMP and Entitiy data are interesting." >> analysis.log
-	echo "Please keep in mind my analysis is just off the cuff and not google'ed for the right answer. I could be wrong and would spend a bit of time looking" >> analysis.log
-	echo "at groups with similar issues." >> analysis.log
-	echo "" >> analysis.log
-	echo "" >> analysis.log
-	echo "This an $1.25 will get you a ride on the MBTA. (Not adjusted for 2015 prices, this is when I worked there.)" >> analysis.log
-	clear
-	cat analysis.log
-}
-
 topTenIPs
 topTenAgents
 topTenPageRequests
@@ -124,4 +105,3 @@ requestsPerMinute
 topPageSuccess
 createBadHtmlEmail
 emailBadHtmlEmail
-DisplayBonusAnalysis
