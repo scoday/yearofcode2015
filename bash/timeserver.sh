@@ -24,7 +24,7 @@ americas() {
       read answer
         if echo "$answer" | grep -iq "^as" ; then
             asia
-        exit 3
+        exit 2
         elif echo "$answer" | grep -iq "^am"; then
            americas
         exit 0
