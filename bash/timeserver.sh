@@ -4,15 +4,15 @@
 
 
 asia() {
-    host -T -t SRV _ldap._tcp.dc._msdcs.asiapacific.cpqcorp.net | awk '{print $8}' | perl -pe 's/.$//'
+    host -T -t SRV _ldap._tcp.dc._msdcs.asiapacific.somecorp.net | awk '{print $8}' | perl -pe 's/.$//'
 }
 
 emea() {
-    host -T -t SRV _ldap._tcp.dc._msdcs.emea.cpqcorp.net | awk '{print $8}' | perl -pe 's/.$//'
+    host -T -t SRV _ldap._tcp.dc._msdcs.emea.somecorp.net | awk '{print $8}' | perl -pe 's/.$//'
 }
 
 americas() {
-    host -T -t SRV _ldap._tcp.dc._msdcs.americas.cpqcorp.net | awk '{print $8}' | perl -pe 's/.$//'
+    host -T -t SRV _ldap._tcp.dc._msdcs.americas.somecorp.net | awk '{print $8}' | perl -pe 's/.$//'
 }
 
 #asia
