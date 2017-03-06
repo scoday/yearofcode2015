@@ -1,4 +1,7 @@
 #!/bin/bash
+# Turns out this inefficient log parser is very good at parsing most any kind of log. Go figure
+# sometimes the lines are blured between Operational Excellence and hacking scripts. This worked well
+# with some mods against various /var/log/*.logs
 
 # RUN Hourly: 
 ## Crontab 0 * * * * cd $working_dir && ./apache_loganalysis.sh
